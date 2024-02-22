@@ -1,9 +1,9 @@
 # Author: Riya Chada, Date: 01/11/2024, Purpose: Microarray analysis
 # Author: Riya Chada, Date: 01/18/2024, Purpose: Basics of R Programing
 
-#Calculate average/mean of 6 numbers
-#SetA = {1,2,3,4,5,6}
-#Average = (1+2+3+4+5+6)/6
+# Calculate average/mean of 6 numbers
+# SetA = {1,2,3,4,5,6}
+# Average = (1+2+3+4+5+6)/6
 x <- c(1,2,3,10,20,30)
 mean(x)
 sd(x)
@@ -35,6 +35,7 @@ head(data)
 # By setting header=TRUE, the first row is seen as a header and not labeled with numbers
 # head(data) to see first part of data
 # tail(data) to see last part of data
+# dim(data) = to check dimensions of data (no. of rows & columns) 
 
 # Apply correlation test: 
 result <- cor.test(data$mpg, data$wt)
@@ -45,11 +46,28 @@ result <- cor.test(data$mpg, data$wt)
 # In-Class Assignment:
 # Generate 3 correlation values for mpg v. hp; mpg v. drat; mpg v. qsec
 # Copy three outputs into R document, save and upload file on Git repo.
-
+# Results:
 # Cor value for mpg vs hp: -0.7761684 
 # Cor value for mpg vs drat: 0.6811719 
 # Cor value for mpg vs qsec: 0.418684 
 
- 
+# Online Compiler R (TutorialsPoint/Programiz): to test functions/statements; for debugging
+
+
+# Author: Riya Chada, Date: 02/22/2024, Purpose: Export in R
+
+# What is export? Saving output from R program
+# csv file = comma separated value file
+# csv file can only save the first sheet so there can be possible data loss, but excel saves all sheets
+# to export file in csv file:
+write.csv(data, "export.csv") 
+# 2 arguments: what variable the data is stored in in R, "where you want to save the data"
+# to export file in txt file:
+write.table(data, "export.txt")
+
+# Visualization in R:
+# Bar plots, Scatter plots, Volcano plots, Venn diagrams, Pie charts, Density plots, Line plots, etc.
+# Bar plot for cyl and gear with cyclinders as x-axis, gears as y-axis, and title as Number of gears per cyclinder:
+barplot(data$cyl,data$gear,xlab="cylinders",ylab="gears",main="Number of gears per cyclinder")
 
 
