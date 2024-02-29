@@ -71,3 +71,31 @@ write.table(data, "export.txt")
 barplot(data$cyl,data$gear,xlab="cylinders",ylab="gears",main="Number of gears per cyclinder")
 
 
+# Author: Riya Chada, Date: 02/29/2024, Purpose: Visualization in R cont.
+
+# Density Plots:
+# For mpg with superimposed hp line:
+den <- density(data$mpg)
+plot(den, col = "blue")
+lines(density(data$hp),lwd = 2, col= "red")
+# lwd is line width
+# col="x" is color
+
+# Histogram (bar + density):
+hist(data$mpg)
+lines(density(data$qsec),lwd = 2, col= "red")
+
+# Scatterplot:
+plot(data$wt, data$mpg, main="Scatterplot Example", xlab="Car Weight", ylab="Miles Per Gallon", pch=19)
+# pch is dot size
+
+# T-test: used to test differences between "2 groups"
+# gives p-value
+
+# ANOVA test (Analysis of Variance): used to test differences between "more than 2 groups"
+# gives f-value
+
+# Types of Hypothesis (Null & Alternate):
+# Null says there is no significant difference between the variables
+# Alternate is my hypothesis (that there is a significant difference)
+
