@@ -89,6 +89,7 @@ lines(density(data$qsec),lwd = 2, col= "red")
 plot(data$wt, data$mpg, main="Scatterplot Example", xlab="Car Weight", ylab="Miles Per Gallon", pch=19)
 # pch is dot size
 
+
 # T-test: used to test differences between "2 groups"
 # gives p-value
 
@@ -98,4 +99,36 @@ plot(data$wt, data$mpg, main="Scatterplot Example", xlab="Car Weight", ylab="Mil
 # Types of Hypothesis (Null & Alternate):
 # Null says there is no significant difference between the variables
 # Alternate is my hypothesis (that there is a significant difference)
+
+
+# Author: Riya Chada, Date: 03/07/2024, Purpose: T-test & ANOVA
+
+# T-test: used to test differences between "2 groups"
+# gives p-value: if less than 0.05, then significant
+# Assumption 1: data should follow normal distribution
+# normal distribution: mean, mode, median lie in center of bell curve; standard deviation = 1; no outliers
+# if there are outliers, normalize the data or get rid of them
+# Line of Best Fit: linear line that goes through origin
+# how close are the data points to this line; helps identify outliers
+# to add line of best fit to a scatterplot:
+# creating a data frame to store the two variables:
+data <- data.frame("y"=mtcars$disp,"x"=mtcars$wt)
+# creating best fit line model:
+fit <-  lm(data$y ~  data$x)
+# flip it:
+fit_inverse <-  lm(data$y ~  I(1/data$x))
+# plot it:
+plot(data$x,data$y,col = "blue",bty="l",pch=20,ylab = "",xlab="")
+# apply the inverse fit model to the plot:
+lines(data$x,fitted(fit) ,type="l",lty = 29,col="blue")
+
+# assignment: generate best fit line for mpg and weight
+data <- data.frame("y"=mtcars$mpg,"x"=mtcars$wt)
+fit <-  lm(data$y ~  data$x)
+fit_inverse <-  lm(data$y ~  I(1/data$x))
+plot(data$x,data$y,col = "blue",bty="l",pch=20,ylab = "Miles Per Gallon",xlab="Car Weight")
+lines(data$x,fitted(fit) ,type="l",lty = 29,col="blue")
+
+
+
 
